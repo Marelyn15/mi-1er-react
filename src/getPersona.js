@@ -4,7 +4,7 @@ export function GetPersona() {
     const [users, setUsers] = useState([]);
 
     useEffect(()=>{
-        fetch("https://jsonplaceholder.typicode.com/users", {
+        fetch("db.json", {
             headers: {
               "Content-Type": "application/json",
               Accept: "application/json",
@@ -14,7 +14,7 @@ export function GetPersona() {
               console.log(response);
               return response.json();
             })
-            .then(function (users) {
+            .then(function ({users}) {
              setUsers(users);
             });
     }, [])

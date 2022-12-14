@@ -4,7 +4,7 @@ export function GetPost() {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
-    fetch("https://jsonplaceholder.typicode.com/posts", {
+    fetch("/db.json", {
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
@@ -14,7 +14,8 @@ export function GetPost() {
         console.log(response);
         return response.json();
       })
-      .then(function (posts) {
+      .then(function ({ posts }) {
+        console.log(posts)
         setPosts(posts);
       });
   }, []);
